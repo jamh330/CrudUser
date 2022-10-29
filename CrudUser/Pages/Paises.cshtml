@@ -1,0 +1,58 @@
+﻿@page
+@model CrudUser.Pages.PaisesModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Mantenedor de roles</h3>
+        </div>
+        <div class="col-md-6">
+            <a asp-page="NuevoPais" class="btn btn-primary float-right"><i class="bi bi-person-plus"></i> Nuevo</a>
+        </div>
+    </div>
+    <hr />
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Listado de paises
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Nombre del pais
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pais in Model.Paises)
+                    {
+                        <tr>
+                            <td>
+                                @pais.Id
+                            </td>
+                            <td>
+                                @pais.Nombre
+                            </td>
+
+                            <td>
+                                <a asp-page="EditarPais" asp-route-id="@pais.Id" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editar pais"><i class="bi bi-pencil-square"></i></a>
+                                <a asp-page="EliminarPais" asp-route-id="@pais.Id" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar pais"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+            <a asp-page="Home" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@page
+@model CrudUser.Pages.NuevoUsuarioModel
+@{
+}
+
+<div class="container">
+    <h3>Nuevo usuario</h3>
+    <hr />
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="NombreUsuario"></label>
+                    <input asp-for="NombreUsuario" class="form-control" type="text" />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombres"></label>
+                    <input asp-for="Nombres" class="form-control" type="text" />
+                    <span asp-validation-for="Nombres" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Apellidos"></label>
+                    <input asp-for="Apellidos" class="form-control" type="text" />
+                    <span asp-validation-for="Apellidos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RolId"></label>
+                    <select asp-for="RolId" class="form-control" asp-items="Model.Roles">
+                        <option value="">--Seleccione--</option>
+                    </select>
+                    <span asp-validation-for="RolId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaisId"></label>
+                    <select asp-for="PaisId" class="form-control" asp-items="Model.Paises">
+                        <option value="">--Seleccione--</option>
+                    </select>
+                    <span asp-validation-for="PaisId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RePassword"></label>
+                    <input asp-for="RePassword" class="form-control" type="password" />
+                    <span asp-validation-for="RePassword" class="text-danger"></span>
+                </div>
+                <a asp-page="Usuarios" class="btn btn-secondary">Volver</a>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <div asp-validation-summary="All" class="text-danger mt-3"></div>
+                <div class="alert alert-info" role="alert">
+                    La contraseña debe cumplir las siguiente especificaciones: Largo 8 - 1 Mayuscula - Minusculas - Digitos
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

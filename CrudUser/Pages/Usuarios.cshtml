@@ -1,0 +1,82 @@
+﻿@page
+@model CrudUser.Pages.UsuariosModel
+@{
+}
+<div class="container">
+    <div class="row" >
+        <div class="col-md-6">
+            <h3>Mantenedor de usuario</h3>
+        </div>
+        <div class="col-md-6">
+            <a asp-page="NuevoUsuario" class="btn btn-primary float-right"><i class="bi bi-person-plus"></i> Nuevo</a>
+        </div>
+    </div>
+    <hr />
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Listado usuarios
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Nombre de usuario
+                        </th>
+                        <th>
+                            Nombres
+                        </th>
+                        <th>
+                            Apellidos
+                        </th>
+                        <th>
+                            Rol
+                        </th>
+                        <th>
+                            Pais
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model.ListaUsuario)
+	                {
+                    <tr>
+                        <td>
+                            @usuario.Id
+                        </td>
+                        <td>
+                            @usuario.nombreUsuario
+                        </td>
+                        <td>
+                            @usuario.nombres
+                        </td>
+                        <td>
+                            @usuario.apellidos
+                        </td>
+                        <td>
+                            @usuario.Rol
+                        </td>
+                        <td>
+                            @usuario.Pais
+                        </td>
+                        <td>
+                            <a asp-page="EditarUsuario" asp-route-id="@usuario.Id" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editar usuario"><i class="bi bi-pencil-square"></i></a>
+                            <a asp-page="EliminarUsuario" asp-route-id="@usuario.Id" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar usuario"><i class="bi bi-trash"></i></a>
+                            <a asp-page="CambioPassword" asp-route-id="@usuario.Id" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Cambiar contraseña"><i class="bi bi-key"></i></a>
+                        </td>
+                    </tr> 
+	                }
+                    
+                </tbody>
+            </table>
+            <a asp-page="Home" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>
+

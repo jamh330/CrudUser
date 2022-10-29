@@ -1,0 +1,50 @@
+﻿@page
+@model CrudUser.Pages.EditarUsuarioModel
+@{
+
+}
+
+<div class="container">
+    <h3>Editar usuario</h3>
+    <hr />
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="NombreUsuario"></label>
+                    <input asp-for="NombreUsuario" class="form-control" type="text" readonly />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombres"></label>
+                    <input asp-for="Nombres" class="form-control" type="text" />
+                    <span asp-validation-for="Nombres" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Apellidos"></label>
+                    <input asp-for="Apellidos" class="form-control" type="text" />
+                    <span asp-validation-for="Apellidos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RolId"></label>
+                    <select asp-for="RolId" class="form-control" asp-items="Model.Roles">
+                        <option value="">--Seleccione--</option>
+                    </select>
+                    <span asp-validation-for="RolId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaisId"></label>
+                    <select asp-for="PaisId" class="form-control" asp-items="Model.Paises">
+                        <option value="">--Seleccione--</option>
+                    </select>
+                    <span asp-validation-for="PaisId" class="text-danger"></span>
+                </div>
+                <a asp-page="Usuarios" class="btn btn-secondary">Volver</a>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <div asp-validation-summary="All" class="text-danger mt-3"></div>
+
+            </form>
+        </div>
+    </div>
+</div>

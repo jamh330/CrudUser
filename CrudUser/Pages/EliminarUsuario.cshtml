@@ -1,0 +1,15 @@
+﻿@page
+@model CrudUser.Pages.EliminarUsuarioModel
+@{
+}
+<h3>Eliminar usuario</h3>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <p>¿Esta seguro de eliminar al usuario  : <b>@Model.NombreUsuario</b>?</p>
+            <a asp-page="Usuarios" class="btn btn-secondary">Cancelar</a>
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+        </form>
+    </div>
+</div>
